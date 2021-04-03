@@ -1,12 +1,13 @@
-const sleep = require("./build/Release/sleep.node");
+const sleep = require("./build/Release/lib.node");
 
-const r = /^(\d+)(ms|s|m|h)$/;
+const r = /^(\d+)(ns|ms|s|m|h)$/;
 sleep.sleep = function sleep_any(str) {
    const m = str.match(r);
    if (m == null) {
       throw new Error("Malformed sleep time string!");
    }
-   sleep["sleep_" + m[2]](+m[1]);
+   const [, units, time] = m;
+   sleep[`sleep_${units}`](time|0);
 }
 
 module.exports = sleep;

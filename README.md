@@ -1,6 +1,6 @@
 # @coalpha/node-sleep
 
-*Because there just **had** to be another one.*
+*Because there just had to be another one.*
 
 ```js
 const sleep = require("@coalpha/node-sleep");
@@ -10,13 +10,13 @@ sleep.sleep_m(1);
 sleep.sleep("20s");
 ```
 
-You can't do this:
 ```
-npm i --save-dev @coalpha/node-sleep
+npm i git+https://github.com/coalpha/node-sleep.git
 ```
-I haven't published it yet.
 
-I was taking a look at native node modules and the first thing that came to mind
-was pausing execution. I wanted to use C instead of C++ but `#include <thread>`
-was so nice that I couldn't resist. The source code embodies *perfect* DRY
-principals resulting in macro garbage. It's really terrible.
+When I was learning about native node modules about a year and a half back, the
+first thing that came to mind was being able to completely suspend the event
+loop. Ya know, just to really stick it to the node people with their "aye sink"
+and "kon curren see" nonsense. Previously, I had done it with a macro but I
+think it's much prettier with a template.
+
